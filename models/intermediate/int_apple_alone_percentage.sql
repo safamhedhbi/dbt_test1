@@ -10,7 +10,7 @@ WITH apple_alone AS (
 
 SELECT
     paid_search_scrap.date_day,
-    (COUNT(DISTINCT apple_alone._scraping_key) * 100.0)
+    COUNT(DISTINCT apple_alone._scraping_key)
     / MAX(paid_search_scrap.scrape_count)
         AS apple_alone_percentage
 FROM {{ ref('int_paid_search_scraps') }} AS paid_search_scrap
