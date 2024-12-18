@@ -1,8 +1,7 @@
 -- Calcul du % d'apparition du domaine Apple en payant
 SELECT
-    date_day,
-    ad_type,
-    SUM(
+date_day,
+    100*(SUM(
         CASE
             WHEN LOWER(domain_name) LIKE '%apple.com%' AND search_type = 'paid'
                 THEN 1
@@ -10,8 +9,9 @@ SELECT
         END
     )
 
-    / COUNT(*) AS appearance_percentage
+    / COUNT(*)) AS appearance_percentage
 FROM {{ ref('stg_google_ads_scraping') }}  -- Référence à la table staging 'stg_scrap_data'
 GROUP BY
-    date_day,
-    ad_type
+    date_day
+ORDER BY
+    date_day
