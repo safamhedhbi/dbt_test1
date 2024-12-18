@@ -1,0 +1,25 @@
+[sqlfluff]
+verbose = 1
+templater = dbt
+dialect = bigquery
+exclude_rules = L014,L031,L053,LT13,LT05
+force_quote_identifier = True
+max_line_length = 80
+
+[sqlfluff:indentation]
+tab_space_size = 4
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+
+[sqlfluff:rules:references.keywords]
+ignore_words = date
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.functions]
+capitalisation_policy = upper

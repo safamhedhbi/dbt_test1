@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - database: raw-data-445005
+    name: case_file
+    schema: case_file
+    tables:
+      - name: google_ads_scraping
