@@ -12,7 +12,7 @@ WITH apple_absent_scraps AS (
 SELECT
     -- Calcul du pourcentage de scrapes où Apple est absent
     date_day,
-    (COUNT(DISTINCT apple_absent_scraps._scraping_key) * 100.0) / MAX(scrape_count)
+    COUNT(DISTINCT apple_absent_scraps._scraping_key) / MAX(scrape_count)
         AS apple_not_present_percentage
 FROM apple_absent_scraps
 GROUP BY date_day
