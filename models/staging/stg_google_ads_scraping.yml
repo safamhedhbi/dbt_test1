@@ -1,0 +1,121 @@
+version: 2
+
+models:
+  - name: stg_google_ads_scraping
+    description: "Table de staging contenant les données de scraping des annonces Google Ads."
+    columns:
+      - name: date_day
+        data_type: date
+        description: "Date du scraping."
+      
+      - name: search_term
+        data_type: string
+        description: "Terme de recherche utilisé pour le scraping (ex: 'iphone 15')."
+        
+      - name: country_code
+        data_type: string
+        description: "Code du pays où le scraping a eu lieu (ex: 'fr' pour la France)."
+        
+      - name: search_type
+        data_type: string
+        description: "Type de recherche, qui peut être 'paid' pour les annonces payantes ou 'organic' pour les résultats organiques."
+
+      - name: position
+        data_type: int64
+        description: "Position de l'annonce sur la page de résultats (ex: 1 pour la première position)."
+        
+      - name: block_position
+        data_type: string
+        description: "Emplacement du bloc d'annonces (par exemple 'stripe', 'top', etc.)."
+        
+      - name: item_position
+        data_type: int64
+        description: "Position spécifique de l'annonce dans son bloc (ex: 1er élément du bloc)."
+        
+      - name: url
+        data_type: string
+        description: "URL de l'annonce, qui est cliquable."
+        
+      - name: displayed_url
+        data_type: string
+        description: "URL affichée de l'annonce (elle peut être différente de l'URL réelle)."
+        
+      - name: title
+        data_type: string
+        description: "Titre de l'annonce."
+        
+      - name: description
+        data_type: string
+        description: "Description de l'annonce (généralement un extrait de l'URL ou du produit)."
+        
+      - name: shipping
+        data_type: string
+        description: "Information sur les frais de livraison, si disponible."
+        
+      - name: shopping_type
+        data_type: string
+        description: "Type d'annonce de shopping (ex: 'PLA' pour les annonces de produits)."
+        
+      - name: seller_name
+        data_type: string
+        description: "Nom du vendeur ou de l'annonceur."
+        
+      - name: rating
+        data_type: float64
+        description: "Note de l'annonce ou du produit (si disponible)."
+        
+      - name: reviews_count
+        data_type: int64
+        description: "Nombre d'avis ou de critiques associés à l'annonce ou au produit."
+        
+      - name: image
+        data_type: string
+        description: "URL de l'image associée à l'annonce (si disponible)."
+        
+      - name: favicon_url
+        data_type: string
+        description: "URL du favicon du site (petit icône associé au site)."
+        
+      - name: _scraping_key
+        data_type: string
+        description: "Clé unique pour identifier un scraping, combinant la date, le terme de recherche, le type d'appareil et le pays."
+              
+      - name: price
+        data_type: float64
+        description: "Prix de l'annonce ou du produit."
+        
+      - name: old_price
+        data_type: int64
+        description: "Ancien prix, si une réduction est appliquée."
+        
+      - name: currency_symbol
+        data_type: string
+        description: "Symbole de la devise utilisée (par exemple €, $, etc.)."
+        
+      - name: device_type
+        data_type: string
+        description: "Type d'appareil utilisé pour la recherche (ex: 'desktop', 'mobile')."
+        
+      - name: favicon_base64
+        data_type: string
+        description: "Image encodée en base64 du favicon (si disponible)."
+        
+      - name: _scraped_at
+        data_type: timestamp
+        description: "Date et heure du scraping (moment où l'information a été récupérée)."
+        
+      - name: domain_name
+        data_type: string
+        description: "Nom de domaine de l'annonce (ex: 'dart.com', 'backmarket.com')."
+
+      - name: ad_type
+        data_type: string
+        description: "Type d'annonce (ex: 'PLA' pour les annonces de shopping, 'TXT' pour les annonces textuelles)."
+        
+      - name: position_type
+        data_type: string
+        description: "Type de position dans les résultats de recherche (ex: 'TOP_PLA' pour les annonces en haut de page)."
+        
+      - name: _surrogate_key
+        data_type: string
+        description: "Clé unique générée pour chaque ligne afin d'identifier de manière fiable un enregistrement dans la base."
